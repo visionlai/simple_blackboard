@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <welcome-file-list>
+        <welcome-file>/login.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+
+    <error-page>
+        <location>/exception.jsp</location>
+    </error-page>
+
+    <filter>
+        <filter-name>EncodeFilter</filter-name>
+        <filter-class>filter.EncodeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodeFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>StudentFilter</filter-name>
+        <filter-class>filter.StudentFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>StudentFilter</filter-name>
+        <url-pattern>/jsp/stu_info.jsp</url-pattern>
+        <url-pattern>/GetSpecifiServlet</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>TeacherFilter</filter-name>
+        <filter-class>filter.TeacherFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>TeacherFilter</filter-name>
+        <url-pattern>/jsp/teach_info.jsp</url-pattern>
+        <url-pattern>/UploadDeclareJsp</url-pattern>
+        <url-pattern>/UploadDeclareServlet</url-pattern>
+        <url-pattern>/UploadHomeworkJsp</url-pattern>
+        <url-pattern>/UploadHomeworkServlet</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>DownloadFilter</filter-name>
+        <filter-class>filter.DownloadFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>DownloadFilter</filter-name>
+        <url-pattern>/DownloadServlet</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+    <context-param>
+        <param-name>uploaddir</param-name>
+        <param-value>E:/blackboard</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>StuLoginServlet</servlet-name>
+        <servlet-class>servlet.StuLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StuLoginServlet</servlet-name>
+        <url-pattern>/StuLoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TeachLoginServlet</servlet-name>
+        <servlet-class>servlet.TeachLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TeachLoginServlet</servlet-name>
+        <url-pattern>/TeachLoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadHomeworkdServlet</servlet-name>
+        <servlet-class>servlet.UploadHomeworkServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadHomeworkdServlet</servlet-name>
+        <url-pattern>/UploadHomeworkServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadDeclareJsp</servlet-name>
+        <servlet-class>servlet.UploadDeclareJsp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadDeclareJsp</servlet-name>
+        <url-pattern>/UploadDeclareJsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadDeclareServlet</servlet-name>
+        <servlet-class>servlet.UploadDeclareServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadDeclareServlet</servlet-name>
+        <url-pattern>/UploadDeclareServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadHomeworkJsp</servlet-name>
+        <servlet-class>servlet.UploadHomeworkJsp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadHomeworkJsp</servlet-name>
+        <url-pattern>/UploadHomeworkJsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DownloadServlet</servlet-name>
+        <servlet-class>servlet.DownloadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DownloadServlet</servlet-name>
+        <url-pattern>/DownloadServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetSpecifiServlet</servlet-name>
+        <servlet-class>servlet.GetSpecifiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetSpecifiServlet</servlet-name>
+        <url-pattern>/GetSpecifiServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteFileServlet</servlet-name>
+        <servlet-class>servlet.DeleteFileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteFileServlet</servlet-name>
+        <url-pattern>/DeleteFileServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
